@@ -1,1 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #202020;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch {
+  color: #f8f8f8;
+  font-size: 50px;
+}
+.watch .hours {
+  background: #101010;
+  height: 100px;
+  aspect-ratio: 1/1;
+  margin-bottom: 40px;
+}
+.watch .minutes {
+  background: #101010;
+  height: 100px;
+  aspect-ratio: 1/1;
+  margin-bottom: 40px;
+}
+.watch .seconds {
+  background: #101010;
+  height: 100px;
+  aspect-ratio: 1/1;
+  margin-bottom: 40px;
+}
+
 /*# sourceMappingURL=main.min.css.map */
