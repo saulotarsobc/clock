@@ -1,0 +1,32 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "CLock!",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass -w scss/main.scss css/main.min.css -s compressed",
+    "dev": "serve -p 3333"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saulotarsobc/clock.git"
+  },
+  "keywords": [
+    "clock",
+    "google",
+    "pixel",
+    "watch"
+  ],
+  "author": "Saulo Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saulotarsobc/clock/issues"
+  },
+  "homepage": "https://github.com/saulotarsobc/clock#readme",
+  "dependencies": {
+    "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
