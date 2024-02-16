@@ -29,6 +29,7 @@ setInterval(() => {
 
   seconds.innerHTML = ss > 9 ? ss : "0" + ss;
   minutes.innerHTML = mm > 9 ? mm : "0" + mm;
+  hours.innerHTML = hh > 9 ? hh : "0" + hh;
 
   // seconds
   if (ssDeg == 0) {
