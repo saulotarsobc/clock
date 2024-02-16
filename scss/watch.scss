@@ -4,6 +4,10 @@
     color: $white-1;
     font-size: 50px;
 
+    .circle {
+        transition: all .5s ease-in-out;
+    }
+
     .hours {
         background: $black-1;
         height: 100px;

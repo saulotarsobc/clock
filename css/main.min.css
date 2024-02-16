@@ -8,6 +8,7 @@ body {
   background-color: #202020;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -15,6 +16,9 @@ body {
 .watch {
   color: #f8f8f8;
   font-size: 50px;
+}
+.watch .circle {
+  transition: all 0.5s ease-in-out;
 }
 .watch .hours {
   background: #101010;
@@ -33,6 +37,10 @@ body {
   height: 100px;
   aspect-ratio: 1/1;
   margin-bottom: 40px;
+}
+
+.logs {
+  color: aliceblue;
 }
 
 /*# sourceMappingURL=main.min.css.map */

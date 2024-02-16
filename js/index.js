@@ -1,30 +1,95 @@
-const [seconds, minutes, hours] = ["seconds", "minutes", "hours"].map(
-  (elClass) => document.querySelector("." + elClass)
-);
+const [seconds, minutes, hours, logs] = [
+  "seconds",
+  "minutes",
+  "hours",
+  "logs",
+].map((elClass) => document.querySelector("." + elClass));
 
+/**
+ * Rotates an element by the specified degree.
+ * @param {HTMLElement} el - The element to rotate.
+ * @param {number} deg - The degree to rotate the element by.
+ */
 function rotate(el, deg) {
   el.style.transform = `rotate(${deg}deg)`;
 }
 
-// Rotacionar o elemento em 45 deg
-rotate(seconds, 45);
+let mmPrev = 0;
+let hhPrev = 0;
 
-console.log(seconds, minutes, hours);
+let ssDeg = 0;
+let mmDeg = 0;
+let hhDeg = 0;
 
 setInterval(() => {
   const date = new Date();
-
-  const hh = date.getHours();
-  const mm = date.getMinutes();
   const ss = date.getSeconds();
+  const mm = date.getMinutes();
+  const hh = date.getHours();
 
-  console.log({ ss, mm, hh });
+  seconds.innerHTML = ss > 9 ? ss : "0" + ss;
+  minutes.innerHTML = mm > 9 ? mm : "0" + mm;
 
-  rotate(hours, hh * 30);
-  rotate(minutes, mm * 6);
-  rotate(seconds, ss * 6);
+  // seconds
+  if (ssDeg == 0) {
+    ssDeg = ss * 6;
+    rotate(seconds, ssDeg);
+  } else {
+    ssDeg = ssDeg + 6;
+    rotate(seconds, ssDeg);
+  }
 
-  hours.innerHTML = hh > 10 ? hh : "0" + hh;
-  minutes.innerHTML = mm > 10 ? mm : "0" + mm;
-  seconds.innerHTML = ss > 10 ? ss : "0" + ss;
+  // minutes
+  if (mmDeg == 0) {
+    mmDeg = mm * 6;
+    rotate(minutes, mmDeg);
+    mmPrev = mm;
+  } else {
+    if (mmPrev != mm) {
+      mmPrev = mm;
+      mmDeg = mmDeg + 15;
+      rotate(minutes, mmDeg);
+    }
+  }
+
+  // hours
+  if (hhDeg == 0) {
+    hhPrev = hh;
+    hhDeg = hh * 30;
+    rotate(hours, hhDeg);
+  } else {
+    if (hhPrev != hh) {
+      hhPrev = hh;
+      hhDeg = hhDeg + 30;
+      rotate(hours, hhDeg);
+    }
+  }
+
+  logs.innerHTML = JSON.stringify(
+    {
+      seconds: {
+        value: ss,
+        deg: ssDeg,
+      },
+      minutes: {
+        value: mm,
+        deg: mmDeg,
+      },
+      hours: {
+        value: hh,
+        deg: hhDeg,
+      },
+    },
+    null,
+    2
+  );
 }, 1000);
+
+// rotate(seconds, ss * 6);
+// rotate(minutes, mm * 6);
+// rotate(hours, hh * 30);
+
+// rotate(minutes, mmDeg);
+// minutes.innerHTML = mm > 9 ? mm : "0" + mm;
+// rotate(hours, hhDeg);
+// hours.innerHTML = hh > 9 ? hh : "0" + hh;
